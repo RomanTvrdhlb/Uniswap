@@ -203,5 +203,10 @@
     font-size: 14px;
     font-family: var(--font-family);
     line-height: 100%;
+    text-indent: -9999px;
+
+    &.active{
+      text-indent: initial;
+    }
   }
 }
