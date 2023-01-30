@@ -14,11 +14,15 @@
   &__wrapper{
     padding: 40px 50px 12px;
     min-width: 560px;
-    
     cursor: pointer;
     display: flex;
     justify-content: center;
     padding-bottom: 12px;
+
+    @include mobile{
+      min-width: 100%;
+      padding: 40px 0 12px;
+    }
   }
 }
 
