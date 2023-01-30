@@ -1,65 +1,39 @@
-let headerBottom = document.querySelector('.header__bottom');
-let mobileParrent = document.querySelector('.mobile-menu');
-let desktopParrent = document.querySelector('.header');
-let imagesAccordion = document.querySelector('.main-accordion--images');
-let breakpointAccordion = 1024;
-let breakpointsublist = 576;
+let headerNav = document.querySelector('.header-nav');
+let headerBox = document.querySelector('.header-box');
+const navList = document.querySelector('.header-nav__list');
+const walletBtn = document.querySelector('.wallet-button');
+const footerMobile = document.querySelector('.footer-box');
+const aboutBtn = document.querySelector('.about-button');
+let breakpoint = 768;
 
 
-const replaceMobileMenu = (element, parentDesktop, parentMobile) => {
+const replaceElements = (element, parentDesktop, parentMobile) => {
   let containerWidth = document.documentElement.clientWidth;
-  if (containerWidth <= breakpointAccordion) {
+  if (containerWidth <= breakpoint) {
     parentMobile.insertAdjacentElement('beforeend', element);
   };
-  if (containerWidth > breakpointAccordion) {
+  if (containerWidth > breakpoint) {
+    parentDesktop.insertAdjacentElement('afterbegin', element);
+  }
+}
+
+const replaceNav = (element, parentDesktop, parentMobile) => {
+  let containerWidth = document.documentElement.clientWidth;
+  if (containerWidth <= breakpoint) {
+    parentMobile.insertAdjacentElement('beforeend', element);
+  };
+  if (containerWidth > breakpoint) {
     parentDesktop.insertAdjacentElement('beforeend', element);
   }
 }
 
 window.addEventListener('resize', () => {
-  replaceMobileMenu(headerBottom, desktopParrent, mobileParrent);
+  replaceElements(walletBtn, headerBox, headerNav);
+  replaceNav(navList, headerNav, footerMobile);
+  replaceElements(aboutBtn, headerBox, footerMobile);
 });
 window.addEventListener('DOMContentLoaded', () => {
-  replaceMobileMenu(headerBottom, desktopParrent, mobileParrent);
+  replaceElements(walletBtn, headerBox, headerNav);
+  replaceNav(navList, headerNav, footerMobile);
+  replaceElements(aboutBtn, headerBox, footerMobile);
 });
-
-const replaceSublistItem = (element, parentDesktop, parentMobile) => {
-  let containerWidth = document.documentElement.clientWidth;
-  if (containerWidth <= breakpointsublist) {
-    parentMobile.insertAdjacentElement('beforeend', element);
-  };
-  if (containerWidth > breakpointsublist) {
-    parentDesktop.insertAdjacentElement('afterend', element);
-  }
-}
-
-
-const replaceAcordionTitle = (element, parentDesktop, parentMobile) => {
-  let containerWidth = document.documentElement.clientWidth;
-  if (containerWidth <= breakpointAccordion) {
-    parentMobile.insertAdjacentElement('beforeend', element);
-  };
-  if (containerWidth > breakpointAccordion) {
-    parentDesktop.insertAdjacentElement('afterend', element);
-  }
-}
-
-if (imagesAccordion) {
-  const imagesAccordionItems = [...imagesAccordion.querySelectorAll('.main-accordion__item')];
-  imagesAccordionItems.map(function (item) {
-    const itemButton = item.querySelector('.main-accordion__btn');
-    const itemImage = item.querySelector('.main-accordion__image');
-    const itemTitle = item.querySelector('.main-accordion__btn-title');
-
-    window.addEventListener('resize', () => {
-      replaceAcordionTitle(itemTitle, itemImage, itemButton);
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-      replaceAcordionTitle(itemTitle, itemImage, itemButton);
-    });
-  })
-}
-
-
-
-

@@ -1,0 +1,26 @@
+.index-swap {
+  width: 100%;
+  min-height: 100vh;
+  padding: 72px 0px 5rem;
+
+  &__box{
+    padding-top: 28px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__wrapper{
+    padding: 40px 50px 12px;
+    min-width: 560px;
+    
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 12px;
+  }
+}
+
+
+

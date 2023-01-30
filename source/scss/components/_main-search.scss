@@ -1,0 +1,94 @@
+.main-search{
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding: 12px 16px;
+    border: solid var(--bg-f);
+    border-width: 0.5px;
+    backdrop-filter: blur(60px);
+    border-radius: 12px;
+    max-width: 480px;
+    max-height: 48px;
+    width: 100%;
+    background-color: var(--bg-f);
+    position: relative;
+    transition: all .25s ease-out;
+    z-index: 1;
+
+    @include for-desktop{
+        max-width: 520px;
+    }
+
+    @include for-big-desktop{
+        max-width: 640px;
+    }
+
+    &:before{
+        z-index: -1;
+        position: absolute;
+        inset: -1px;
+        content: "";
+        background: linear-gradient(91.46deg,#4673fa,#9646fa 100.13%) border-box;
+        border: 1px solid transparent;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+    }
+
+    &:hover{
+        &:before{
+            opacity: 1;
+        }
+    }
+
+    @include tablet{
+        display: none;
+    }
+
+    &__slash{
+        font-family: var(--font-family);
+        background-color: var(--bg-e);
+        color: var(--color-g);
+        padding: 0px 8px;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        opacity: 0.6;
+        backdrop-filter: blur(60px);
+    }
+
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            stroke: var(--color-c);
+            fill: transparent;
+        }
+    }
+
+    &__label{
+        width: 100%;
+    }
+
+    &__input{
+        font-family: var(--font-family);
+        line-height: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--color-a);
+        background: none;
+
+        &::placeholder{
+            color: var(--color-c);
+        }
+    }
+}

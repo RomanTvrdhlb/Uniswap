@@ -1,131 +1,17 @@
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-
+header{
+  position: fixed;
   width: 100%;
-
-  &.opacity {
-    background-color: var(--bg-header1);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  &.black {
-    background-color: var(--bg-b);
-  }
+  top: 0;
+  z-index: 100;
 }
 
-.header {
-  display: grid;
-  padding: clamp(30px, 3.281vw, 42px) 0 clamp(30px, 3.594vw, 46px);
-
-  background-color: transparent;
-
-  grid-gap: 91px;
-  grid-template-columns: 196px 1fr auto;
-
-@include laptop {
-    grid-gap: clamp(20px, 4.993vw, 71px);
-  }
-
-  &-contact {
-    display: flex;
-    align-items: center;
-    order: 2;
-
-    transition: opacity 0.4s;
-
-    grid-gap: clamp(26px, 4.531vw, 58px);
-
-@include laptop {
-      justify-content: flex-end;
-    }
-
-@include for-tablet {
-      grid-gap: 48px;
-    }
-  }
-
-  &-burger {
-    justify-content: center;
-    order: 3;
-
-@include for-laptop {
-      display: none;
-    }
-  }
-  &-switch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    grid-gap: 12px;
-
-@include mobile {
-      display: none;
-    }
-
-    &__btn {
-      font-style: normal;
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 18px;
-      font-family: var(--font-family);
-      text-align: right;
-      color: var(--color-d);
-      text-transform: uppercase;
-
-      &.active {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 18px;
-        font-family: var(--font-family);
-        text-align: right;
-        color: var(--color-c);
-        text-transform: uppercase;
-      }
-    }
-  }
-
-  &-btn {
-    position: relative;
-
-    &__amount {
-      position: absolute;
-      bottom: -50%;
-      left: 50%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 18px;
-      height: 18px;
-
-      font-style: normal;
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 14px;
-      font-family: var(--font-family);
-      text-align: center;
-      color: var(--color-b);
-
-      background-color: var(--color-c);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-}
-.main-logo {
+.header{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  order: 1;
-  width: fit-content;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10px 4px;
+  z-index: 2;
+  max-height: 72px;
+  height: 100%;
+  width: 100%;
 }
-
-.header-black {
-  background-color: var(--bg-b);
-}
-

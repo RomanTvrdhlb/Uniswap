@@ -1,0 +1,28 @@
+.main-choice{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 4px;
+    width: 100%;
+    opacity: 0.6;
+    font-weight: 500;
+    transition: all .125s;
+    font-size: 11px;
+    &:hover{
+        opacity: 1;
+    }
+
+    &__about{
+        
+        color: var(--color-a);
+
+    }
+
+    &__lang{
+        color: var(--color-d);
+        transition: all .125s;
+        &:hover{
+            opacity: 0.6;
+        }
+    }
+}
